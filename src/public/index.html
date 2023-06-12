@@ -101,32 +101,32 @@
                 <div class="updates">
                     <div class="update">
                         <div class="profile-photo">
-                            <span class="material-symbols-rounded">vaccines</span>
+                            <span class="material-symbols-rounded">prescriptions</span>
                         </div>
                         <div class="message">
-                            <p><b>Paracetamol</b> 1gr as 18:30</p>
-                            <small class="text-muted">2 Minutes Ago</small>
+                            <p>Tomar 1 CP <b>CONCARDIO 2,5MG</b></p>
+                            <small class="text-muted">1 vez ao dia</small>
                         </div>
                     </div>
                     <div class="update">
                         <div class="profile-photo">
-                            <span class="material-symbols-rounded">vaccines</span>
+                            <span class="material-symbols-rounded">prescriptions</span>
                         </div>
                         <div class="message">
-                            <p><b>Paracetamol</b> 1gr as 18:30</p>
-                            <small class="text-muted">2 Minutes Ago</small>
+                            <p>Tomar 1 CP <b>DONAREM 50MG</b></p>
+                            <small class="text-muted">por 60 dias</small>
                         </div>
                     </div>
                     <div class="update">
                         <div class="profile-photo">
-                            <span class="material-symbols-rounded">vaccines</span>
+                            <span class="material-symbols-rounded">stethoscope</span>
                         </div>
                         <div class="message">
-                            <p><b>Paracetamol</b> 1gr as 18:30</p>
-                            <small class="text-muted">2 Minutes Ago</small>
+                            <p><b>Consulta </b> Dr. Oldúlio</p>
+                            <small class="text-muted">Amanhã</small>
                         </div>
                     </div>
-                    <a href="#">Show All</a>
+                    <a href="#">Mostrar todos</a>
                 </div>
                 
             </div>
@@ -143,8 +143,15 @@
   <script>
     document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-          initialView: 'dayGridMonth'
+        var calendar = new FullCalendar.Calendar(calendarEl, {  
+          initialView: 'dayGridMonth',
+          events: [
+                {
+                    title: 'Cons. Dr. Odúlio',
+                    start: '2023-06-12T16:10:00',
+                    end: '2023-06-12T16:30:00'
+                }
+            ]
         });
         calendar.setOption('locale', 'pt');
         calendar.render();
