@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "++id, nome, fabricante, principioAtivo, formaFarmaceutica, efeitosColaterais",
     farmacias: "++id, nome, contato, telefone, chavePix",
     medicos: "++id, nome, especialidade, telefone, endereço, valor",
+    agenda: "++id, dataHora, tipo, status, medico_id, clinica_laboratorio_id, notas"
   });
 
   function Medicamento(
@@ -39,6 +40,14 @@ document.addEventListener("DOMContentLoaded", function () {
     this.valor = valor;
   }
 
+  function Agenda(dataHora, tipo, status, medico_id, clinica_laboratorio_id, notas) {
+    this.dataHora = dataHora;
+    this.tipo = tipo;
+    this.status = status;
+    this.medico_id = medico_id;
+    this.clinica_laboratorio_id = clinica_laboratorio_id;
+    this.notas = notas;
+  }
   // Adicionar um medicamento
   // var medicamento1 = new Medicamento("Novalgina", "Germed", "Dipirona Sódica", "Comprimido", "");
   // db.medicamentos.add(medicamento1);
@@ -65,6 +74,27 @@ document.addEventListener("DOMContentLoaded", function () {
       principioAtivo: novoPrincipioAtivo,
       formaFarmaceutica: novaFormaFarmaceutica,
       efeitosColaterais: novoEfeitosColaterais,
+    });
+  }
+  
+  function atualizarAgenda(
+    id,
+    novoNome,
+    novaDataHora,
+    novoTipo,
+    novoStatus,
+    novoMedico_id,
+    novaClinica_laboratorio_id,
+    novaNotas
+  ) {
+    db.agenda.update(id, {
+      nome: novoNome,
+      dataHora: novaDataHora,
+      tipo: novoTipo,
+      status: novoStatus,
+      medico_id: novoMedico_id,
+      clinica_laboratorio_id: novaClinica_laboratorio_id,
+      notas: novaNotas,
     });
   }
 
@@ -219,6 +249,64 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
   }
+
+  function atualizarTabelaAgenda()  {
+    var tabelaAgenda = document.getElementById("tabelaAgenda");
+    if (tabelaAgenda) {
+      var tbody = tabelaAgenda.getElementsByTagName("tbody")[0];
+      tbody.innerHTML = "";
+
+      db.agenda.toArray().then(function (agenda) {
+        agenda.forEach(function (agenda) {
+          var row = tbody.insertRow();
+
+          var cellId = row.insertCell(0);
+          var cellNome = row.insertCell(1);
+          var cellDataHora = row.insertCell(2);
+          var cellTipo = row.insertCell(3);
+          var cellStatus = row.insertCell(4);
+          var cellMedico = row.insertCell(5);
+          var cellClinica_laboratorio = row.insertCell(6);
+          var cellNotas = row.insertCell(7);
+          
+          cellId.textContent = agenda.id;
+          cellNome.textContent = agenda.nome;
+          cellDataHora.textContent = agenda.dataHora;
+          cellTipo.textContent = agenda.tipo;
+          cellStatus.textContent = agenda.status;
+          cellMedico.textContent = agenda.medico;
+          cellClinica_laboratorio.textContent = agenda.clinica_laboratorio;
+          cellNotas.textContent = agenda.notas;
+          
+          var btnEditar = document.createElement("button");
+          btnEditar.textContent = "Editar";
+          btnEditar.classList.add("btn"); // Adiciona a classe 'btn'
+          btnEditar.onclick = function () {
+            document.getElementById("agendaId").value = agenda.id;
+            document.getElementById("agendaNome").value = agenda.nome;
+            document.getElementById("agendaDataHora").value = agenda.dataHora;
+            document.getElementById("agendaTipo").value = agenda.tipo;
+            document.getElementById("agendaStatus").value = agenda.status;
+            document.getElementById("agendaMedico").value = agenda.medico;
+            document.getElementById("agendaClinica_laboratorio").value = agenda.clinica_laboratorio;
+            document.getElementById("agendaNotas").value = agenda.notas;
+          };
+
+          var btnExcluir = document.createElement("button");
+          btnExcluir.textContent = "Excluir";
+          btnExcluir.classList.add("btn"); // Adiciona a classe 'btn'
+          btnExcluir.onclick = async function () {
+            await deletarAgenda(agenda.id);
+            await atualizarTabelaAgenda();
+          };
+
+          cellAcoes.appendChild(btnEditar);
+          cellAcoes.appendChild(btnExcluir);
+        });
+      });
+    }
+  }
+
   function atualizarTabelaMedicos() {
     var tabelaMedicos = document.getElementById("tabelaMedicos");
     if (tabelaMedicos) {

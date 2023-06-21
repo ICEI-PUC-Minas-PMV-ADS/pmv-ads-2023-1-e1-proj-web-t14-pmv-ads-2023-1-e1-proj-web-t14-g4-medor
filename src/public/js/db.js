@@ -7,7 +7,7 @@ db.version(1).stores({
     pacientes: '++id, nome, idade',
     medicos: '++id, nome',
     clinicasLaboratorios: '++id, nome',
-    agendamentos: '++id, dataHora, tipo, medico_id, clinica_laboratorio_id'
+    agenda: '++id, dataHora, tipo, status, medico_id, clinica_laboratorio_id, notas',
 });
 
 export default db;
