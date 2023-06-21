@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+  <!-- <link rel="icon" type="image/svg+xml" href="./images/logo.svg"> -->
+  <!--Material CDN-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="./css/styles.css">
+  <title>MedOrganizer</title>
+</head>
+<body>
+  
+  <div class="container">
+        <aside>
+            <div class="top">
+                <div class="brand">
+                    <div class="logo"></div>
+                    <!-- <img src="./images/logo-.svg" alt="logo"> -->
+                    <h2>Med <span class="">Organizer</span></h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-symbols-rounded">close</span>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <a href="#" class="active">
+                    <span class="material-symbols-rounded">grid_view</span>
+                    <h3>Dashboard</h3>
+                </a>
+                <a href="./ClinicaLab.html">
+                    <span class="material-symbols-rounded">add_business</span>
+                    <h3>Clinica/Labor</h3>
+                </a>
+                <a href="./paciente.html">
+                    <span class="material-symbols-rounded">Conditions</span>
+                    <h3>Pacientes</h3>
+                </a>
+                <a href="./medico.html">
+                    <span class="material-symbols-rounded">Stethoscope</span>
+                    <h3>Médicos</h3>
+                    <!-- <span class="message-count">1</span> -->
+                </a>
+                <a href="./medicamento.html">
+                    <span class="material-symbols-rounded">vaccines</span>
+                    <h3>Medicamentos</h3>
+                    <!-- <span class="message-count">1</span> -->
+                </a>
+                <a href="./farmacia.html">
+                    <span class="material-symbols-rounded">emoji_transportation</span>
+                    <h3>Farmácias</h3>
+                    <!-- <span class="message-count">1</span> -->
+                </a>
+                <!-- <a href="#">
+                    <span class="material-symbols-rounded">settings</span>
+                    <h3>Configuração</h3>
+                </a> -->
+                <a href="signin.html">
+                    <span class="material-symbols-rounded">logout</span>
+                    <h3>Logout</h3>
+                </a>
+            </div>
+        </aside>
+        <!--MAIN-->
+<main>
+ <div class="recent-orders" id="formClinLab">
+            <h1>Formulário de Cadastro de Clinica ou Laboratórios</h1>
+            <form class="form" action="#" method="post">
+                
+                <div class="form_grupo">
+                    <label for="nome" class="form_label">Nome da Clinica ou Laboratórios</label>
+                    <input type="text" name="nome" class="form_input" id="nome" placeholder="Nome" required>
+                </div>
+                
+                
+                <div class="form_grupo">
+                    <label for="mensagem" class="form_label">Mensagem</label>
+                    <input type="text" name="mensagem" class="form_input" id="mensagem" placeholder="Mensagem ou recado " required>
+                </div>        
+
+                <div class="form_grupo">
+                    <label for="celular" class="form_label">Celular</label>
+                    <input type="number" name="celular" class="form_input" id="Celular" placeholder="(31)99999-9999" required>
+                </div>    
+
+                <div class="form_grupo">
+                    <label for="e-mail" class="form_label">Email</label>
+                    <input type="email" name="email" class="form_input" id="email" placeholder="seuemail@email.com" required>
+                </div>
+                <div class="form_grupo">
+                    <label for="pix" class="form_label">Chave Pix</label>
+                    <input type="text" name="pix" class="form_input" id="pix" >
+                </div>   
+
+                <div class="form_grupo">
+                    <label for="Telefone" class="form_label">Telefone</label>
+                    <input type="number" name="Telefone" class="form_input" id="Telefone" placeholder="(31)3131-3131" >
+                </div>
+
+                <div class="form_grupo">
+                    <label for="URL" class="form_label">Site da Clinica ou Laboratório</label>
+                    <input type="text" name="URL" class="form_input" id="URL">
+                </div> 
+                
+                
+                    <legend>Dados de Endereço</legend>
+                    <div class="form-group">
+                    <table cellspacing="10" required>
+                   
+                     <tr>
+                      <td>
+                       <label for="rua" class="form_label" >Rua:</label>
+                      </td>
+                      <td >
+                       <input type="text" name="rua" class="form_input">
+                      </td>
+                      <td>
+                       <label for="numero"class="form_label">Numero:</label>
+                      </td>
+                      <td >
+                       <input type="text" name="numero" size="4" class="form_input">
+                      </td>
+                     </tr>
+                     <tr>
+                      <td>
+                       <label for="bairro"class="form_label">Bairro: </label>
+                      </td>
+                      <td >
+                       <input type="text" name="bairro" class="form_input">
+                      </td>
+                     </tr>
+                     <tr>
+                      <td>
+                       <label for="estado"class="form_label">Estado:</label>
+                      </td>
+                      <td >
+                       <select name="estado"> 
+                       <option value="ac">Acre</option> 
+                       <option value="al">Alagoas</option> 
+                       <option value="am">Amazonas</option> 
+                       <option value="ap">Amapá</option> 
+                       <option value="ba">Bahia</option> 
+                       <option value="ce">Ceará</option> 
+                       <option value="df">Distrito Federal</option> 
+                       <option value="es">Espírito Santo</option> 
+                       <option value="go">Goiás</option> 
+                       <option value="ma">Maranhão</option> 
+                       <option value="mt">Mato Grosso</option> 
+                       <option value="ms">Mato Grosso do Sul</option> 
+                       <option value="mg">Minas Gerais</option> 
+                       <option value="pa">Pará</option> 
+                       <option value="pb">Paraíba</option> 
+                       <option value="pr">Paraná</option> 
+                       <option value="pe">Pernambuco</option> 
+                       <option value="pi">Piauí</option> 
+                       <option value="rj">Rio de Janeiro</option> 
+                       <option value="rn">Rio Grande do Norte</option> 
+                       <option value="ro">Rondônia</option> 
+                       <option value="rs">Rio Grande do Sul</option> 
+                       <option value="rr">Roraima</option> 
+                       <option value="sc">Santa Catarina</option> 
+                       <option value="se">Sergipe</option> 
+                       <option value="sp">São Paulo</option> 
+                       <option value="to">Tocantins</option> 
+                      </select>
+                      </td>
+                     </tr>
+                     <tr>
+                      <td>
+                       <label for="cidade"class="form_label">Cidade: </label>
+                      </td>
+                      <td >
+                       <input type="text" name="cidade" class="form_input">
+                      </td>
+                     </tr>
+                     <tr>
+                      <td>
+                       <label for="cep"class="form_label">CEP: </label>
+                      </td>
+                      <td >
+                       <input type="text" name="cep" size="5" maxlength="5" class="form_input"> - <input type="text" name="cep2" size="3" maxlength="3" class="form_input">
+                      </td>
+                     </tr>
+                    </table>
+                </div>
+                   <br/>
+                   
+                </form>
+                </div>
+</main>
+
+
+        <!-- END OF MAIN-->
+        <div class="right">
+            <div class="top">
+                <button id="menu-btn">
+                    <span class="material-symbols-rounded">menu</span>
+                </button>
+                <div class="theme-toggler">
+                    <span class="material-symbols-rounded active">light_mode</span>
+                    <span class="material-symbols-rounded">dark_mode</span>
+                </div>
+                <div class="profile">
+                    <div class="info">
+                        <p>Hey, <b>Jon</b></p>
+                        <small class="text-muted"></small>
+                    </div>
+                    <div class="profile-photo">
+                        <img src="./images/contactpic.svg" alt="">
+                    </div>
+                </div>
+            </div>
+            <!-- END OF TOP -->
+            <div class="recent-updates">
+                <h2>Notificações</h2>
+                <div class="updates">
+                    <div class="update">
+                        <div class="profile-photo">
+                            <span class="material-symbols-rounded">prescriptions</span>
+                        </div>
+                        <div class="message">
+                            <p>Tomar 1 CP <b>CONCARDIO 2,5MG</b></p>
+                            <small class="text-muted">1 vez ao dia</small>
+                        </div>
+                    </div>
+                    <div class="update">
+                        <div class="profile-photo">
+                            <span class="material-symbols-rounded">prescriptions</span>
+                        </div>
+                        <div class="message">
+                            <p>Tomar 1 CP <b>DONAREM 50MG</b></p>
+                            <small class="text-muted">por 60 dias</small>
+                        </div>
+                    </div>
+                    <div class="update">
+                        <div class="profile-photo">
+                            <span class="material-symbols-rounded">stethoscope</span>
+                        </div>
+                        <div class="message">
+                            <p><b>Consulta </b> Dr. Oldúlio</p>
+                            <small class="text-muted">Amanhã</small>
+                        </div>
+                    </div>
+                    <a href="#">Mostrar todos</a>
+                </div>
+                
+            </div>
+          
+        </div>
+    </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+  <script src="https://unpkg.com/dexie@3.0.3/dist/dexie.min.js"></script>
+  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.7/index.global.min.js'></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {  
+          initialView: 'dayGridMonth',
+          events: [
+                {
+                    title: 'Cons. Dr. Odúlio',
+                    start: '2023-06-12T16:10:00',
+                    end: '2023-06-12T16:30:00'
+                }
+            ]
+        });
+        calendar.setOption('locale', 'pt');
+        calendar.render();
+      });
+  </script>
+</body>
+</html>
