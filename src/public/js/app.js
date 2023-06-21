@@ -449,6 +449,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
   // Atualizar tabelas ao carregar a página
+  atualizarAgenda();
   atualizarTabelaMedicamentos();
   atualizarTabelaFarmacias();
   atualizarTabelaMedicos();
