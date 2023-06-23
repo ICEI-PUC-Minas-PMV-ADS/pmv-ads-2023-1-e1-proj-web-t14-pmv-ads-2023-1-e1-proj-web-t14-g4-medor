@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+  <!-- <link rel="icon" type="image/svg+xml" href="./images/logo.svg"> -->
+  <!--Material CDN-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="./css/styles.css">
+<style>
+  
+
+:root{
+    --primary-color: #d3dbe6;
+;
+    --secundary-color: #FFF1CC;
+    --shadow-color: #CCC;
+    --text-color: #FFF;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'karla', sans-serif;
+    position:relative;
+}
+
+header{
+    background-color: var(--primary-color);
+    height: 60px;
+    padding-left: center;
+    text-align: center;
+    line-height: 60px;
+    box-shadow: 0 1px 2px var(--shadow-color);
+}
+
+.header-title{
+    color: black;
+    font-size: 2rem;
+    width: 1400px;
+
+
+}
+
+main{
+   position: absolute;
+   left: 15%;
+   top: 6%;
+   display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 80%;
+    margin: 5vh auto;
+    padding: 30px;
+    box-shadow: 2px 2px 10px var(--shadow-color);
+    gap: 20px;
+}
+
+
+@media (max-width:480px){
+    header{
+        position:fixed;
+        width:100%;
+    }
+    .header-title{
+        font-size: 1.5rem;
+    }
+
+    main{
+        padding: 0;
+        margin: 20px 0 0 0;
+        width:100%;
+        box-shadow: none;
+    }
+}
+.button{
+    border-style: none;
+    height: 30px;
+    padding: 6px 12px;
+    background-color: black;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: box-shadow .6s ease;
+}
+
+.button.blue{
+    background-color:#363949;
+}
+
+button.green{
+    background-color: #363949;
+}
+
+button.red{
+    background-color:#363949;
+}
+
+.button:hover{
+    box-shadow: inset 200px 0 0 #00000055;
+}
+
+@media(max-width:480px){
+    .button.mobile{
+        color:transparent;
+        font-size:0;
+        width:50px;
+        height:50px;
+        border-radius: 50%;
+        position:fixed;
+        top: 90vh;
+        left: 80vw;
+    }
+    .button.mobile::before{
+        content: "+";
+        color:black;
+        font-size:2rem;
+        width:100%;
+        height:100%;
+    }
+}
+.modal{
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background: #00000090;
+    opacity: 0;
+    z-index: -1;
+}
+
+.modal.active{
+    opacity: 1;
+    z-index: 1;
+}
+
+.modal-content{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    width: 50vw;
+    margin: 15vh auto;
+    padding-bottom: 20px;
+    background-color: white;
+    box-shadow: 1px 1px 10px black;
+}
+
+.modal-header{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    height: 40px;
+    line-height: 40px;
+    font-size: 1rem;
+}
+
+
+
+.modal-close{
+    position: absolute;
+    right: 0;
+    display: block;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    user-select: none;
+    cursor: pointer;
+}
+
+.modal-close:hover{
+    background-color: #363949;
+    color: white;
+}
+
+.modal-form{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.modal-field{
+    width: calc(50% - 10px);
+    height: 40px;
+    outline-style: none;
+    border-style: none;
+    box-shadow: 0 0 2px black;
+    padding: 0 10px;
+    font-size:1rem;
+}
+
+.modal-field:focus{
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 0 3px var(--primary-color);
+}
+
+
+.modal-footer{
+    background-color: inherit;
+    text-align: right;
+    padding: 0 20px;
+}
+
+@media (max-width:480px){
+    .modal{
+        top:100%;
+        transition: all 1s ease;
+    }
+    .modal.active{
+        top:0;
+    }
+    .modal-content{
+        margin:0;
+        width:100%;
+        position:fixed;
+    }
+    .modal-field{
+        width:100%;
+    }
+}
+.records{
+    width: 100%;
+    user-select: none;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+.records th{
+    height: 35px;
+    background-color: var(--primary-color);
+    padding-left: 40px;
+    font-size: 1.1rem;   
+    text-align: center;
+    
+}
+.records td{
+    height: 40px;
+    padding-left: 20px;
+    
+}
+
+.records th:last-child,
+.records td:last-child{
+    padding: 0;
+    min-width: 140px;
+    text-align: center;
+}
+
+.records tr:hover{
+    background-color: var(--secundary-color);
+}
+
+@media(max-width:480px){
+    .records{
+        border-spacing: 5px;
+    }
+    .records thead{
+        display:none;
+    }
+    .records tr{
+        box-shadow: 0 1px 3px var(--shadow-color);
+    }
+    .records td:not(:first-child){
+        display:flex;
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+
+    .records td{
+        margin:10px 0;
+    }
+
+    .records tr:hover{
+        background-color: inherit;
+    }
+}
+</style>
+  <title>MedOrganizer</title>
+</head>
+<body>
+  <div class="container">
+        <aside>
+            <div class="top">
+                <div class="brand">
+                    <div class="logo"></div>
+                    <!-- <img src="./images/logo-.svg" alt="logo"> -->
+                    <h2>Med <span class="">Organizer</span></h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-symbols-rounded">close</span>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <a href="#" class="">
+                    <span class="material-symbols-rounded">grid_view</span>
+                    <h3>Dashboard</h3>
+                </a>
+                <a href="#">
+                    <span class="material-symbols-rounded">add_business</span>
+                    <h3>Clinica/Labor</h3>
+                </a>
+                <a href="./paciente.html">
+                    <span class="material-symbols-rounded">Conditions</span>
+                    <h3>Pacientes</h3>
+                </a>
+                <a href="./medico.html">
+                    <span class="material-symbols-rounded">Stethoscope</span>
+                    <h3>Médicos</h3>
+                    <!-- <span class="message-count">1</span> -->
+                </a>
+                <a href="./medicamento.html">
+                    <span class="material-symbols-rounded">vaccines</span>
+                    <h3>Medicamentos</h3>
+                    <!-- <span class="message-count">1</span> -->
+                </a>
+                <a href="./farmacia.html">
+                    <span class="material-symbols-rounded">emoji_transportation</span>
+                    <h3>Farmácias</h3>
+                    <!-- <span class="message-count">1</span> -->
+
+                    <a href="./prescricoes.html" class="active">
+                        <span class="material-symbols-rounded">book</span>
+                        <h3>Prescrições</h3>
+
+                         <!-- <span class="message-count">1</span> -->
+                </a>
+                <!-- <a href="#">
+                    <span class="material-symbols-rounded">settings</span>
+                    <h3>Configuração</h3>
+                </a> -->
+                <a href="signin.html">
+                    <span class="material-symbols-rounded">logout</span>
+                    <h3>Logout</h3>
+                </a>
+            </div>
+        </aside>
+        <!--MAIN-->
+        <header>
+          <h1 class="header-title">Prescrições</h1>
+      </header>
+      <main>
+          <button type="button" class="button blue mobile" id="cadastrarCliente">Cadastrar</button>
+          <table id="tableClient" class="records">
+              <thead>
+                  <tr>
+                      <th>Medicamento</th>
+                      <th>Progresso</th>
+                      <th>Status</th>
+                      <th>Vezes</th>
+                      <th>Frequência</th>
+                      <th>Dosagem</th>
+                      <th>Duração</th>
+                      <th>Instruçoes Adicionais</th>
+                      <th>Data Consulta</th>
+                      <th>Médico</th>
+                      <th>Ações</th>
+                  </tr>
+              </thead>
+              <tbody>
+  
+              </tbody>
+          </table>
+          <div class="modal" id="modal">
+              <div class="modal-content">
+                  <header class="modal-header">
+                      <h2>Prescrições</h2>
+                      <span class="modal-close" id="modalClose">&#10006;</span>
+                  </header>
+                  <form id="form" class="modal-form">
+                      <input type="text" id="medicamento" data-index="new" class="modal-field" placeholder="Nome do Medicamento"
+                          required>
+                      <input type="text" id="progresso" class="modal-field" placeholder="Progresso" required>
+                      <input type="text" id="status" class="modal-field" placeholder="Status" required>
+                      <input type="text" id="vezes" class="modal-field" placeholder="Vezes" required>
+                      <input type="text" id="frequencia" class="modal-field" placeholder="Frequência" required>
+                      <input type="text" id="dosagem" class="modal-field" placeholder="Dosagem" required>
+                      <input type="text" id="duracao" class="modal-field" placeholder="Duração" required>
+                      <input type="text" id="instrucoesAdicionais" class="modal-field" placeholder="Instruções Adicionais" required>
+                      <input type="text" id="dataConsulta" class="modal-field" placeholder="Data Consulta" required>
+                      <input type="text" id="medico" class="modal-field" placeholder="Médico" required>
+                      
+                  </form>
+                  <footer class="modal-footer">
+                      <button id="salvar" class="button green">Salvar</button>
+                      <button id="cancelar" class="button blue">Cancelar</button>
+                  </footer>
+              </div>
+          </div>
+      </main>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+  <script src="https://unpkg.com/dexie@3.0.3/dist/dexie.min.js"></script>
+  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.7/index.global.min.js'></script>
+  <script src="js/app.js"></script>
+
+  <script>
+    'use strict'
+
+const openModal = () => document.getElementById('modal')
+    .classList.add('active')
+
+const closeModal = () => {
+    clearFields()
+    document.getElementById('modal').classList.remove('active')
+}
+
+
+const getLocalStorage = () => JSON.parse(localStorage.getItem('db_client')) ?? []
+const setLocalStorage = (dbClient) => localStorage.setItem("db_client", JSON.stringify(dbClient))
+
+// CRUD - create read update delete
+const deleteClient = (index) => {
+    const dbClient = readClient()
+    dbClient.splice(index, 1)
+    setLocalStorage(dbClient)
+}
+
+const updateClient = (index, client) => {
+    const dbClient = readClient()
+    dbClient[index] = client
+    setLocalStorage(dbClient)
+}
+
+const readClient = () => getLocalStorage()
+
+const createClient = (client) => {
+    const dbClient = getLocalStorage()
+    dbClient.push (client)
+    setLocalStorage(dbClient)
+}
+
+const isValidFields = () => {
+    return document.getElementById('form').reportValidity()
+}
+
+//Interação com o layout
+
+const clearFields = () => {
+    const fields = document.querySelectorAll('.modal-field')
+    fields.forEach(field => field.value = "")
+    document.getElementById('medicamento').dataset.index = 'new'
+    document.querySelector(".modal-header>h2").textContent  = 'Novo Medicamento'
+}
+
+const saveClient = () => {
+    if (isValidFields()) {
+        const client = {
+            medicamento: document.getElementById('medicamento').value,
+            progresso: document.getElementById('progresso').value,
+            status: document.getElementById('status').value,
+            vezes: document.getElementById('vezes').value,
+            frequencia: document.getElementById('frequencia').value,
+            dosagem: document.getElementById('dosagem').value,
+            duracao: document.getElementById('duracao').value,
+            instrucoesAdicionais: document.getElementById('instrucoesAdicionais').value,
+            dataConsulta: document.getElementById('dataConsulta').value,
+            medico: document.getElementById('medico').value
+            
+        }
+        const index = document.getElementById('medicamento').dataset.index
+        if (index == 'new') {
+            createClient(client)
+            updateTable()
+            closeModal()
+        } else {
+            updateClient(index, client)
+            updateTable()
+            closeModal()
+        }
+    }
+}
+
+const createRow = (client, index) => {
+    const newRow = document.createElement('tr')
+    newRow.innerHTML = `
+        <td>${client.medicamento}</td>
+        <td>${client.progresso}</td>
+        <td>${client.status}</td>
+        <td>${client.vezes}</td>
+        <td>${client.frequencia}</td>
+        <td>${client.dosagem}</td>
+        <td>${client.duracao}</td>
+        <td>${client.instrucoesAdicionais}</td>
+        <td>${client.dataConsulta}</td>
+        <td>${client.medico}</td>
+        <td>
+            <button type="button" class="button green" id="edit-${index}">Editar</button>
+            <button type="button" class="button red" id="delete-${index}" >Excluir</button>
+        </td>
+    `
+    document.querySelector('#tableClient>tbody').appendChild(newRow)
+}
+
+const clearTable = () => {
+    const rows = document.querySelectorAll('#tableClient>tbody tr')
+    rows.forEach(row => row.parentNode.removeChild(row))
+}
+
+const updateTable = () => {
+    const dbClient = readClient()
+    clearTable()
+    dbClient.forEach(createRow)
+}
+
+const fillFields = (client) => {
+    document.getElementById('medicamento').value = client.medicamento
+    document.getElementById('progresso').value = client.progresso
+    document.getElementById('status').value = client.status
+    document.getElementById('vezes').value = client.vezes
+    document.getElementById('frequencia').value = client.frequencia
+    document.getElementById('dosagem').value = client.dosagem
+    document.getElementById('duracao').value = client.duracao
+    document.getElementById('instrucoesAdicionais').value = client.instrucoesAdicionais
+    document.getElementById('dataConsulta').value = client.dataConsulta
+    document.getElementById('medico').value = client.medico
+    document.getElementById('medicamento').dataset.index = client.index
+    }
+    
+
+const editClient = (index) => {
+    const client = readClient()[index]
+    client.index = index
+    fillFields(client)
+    document.querySelector(".modal-header>h2").textContent  = `Editando ${client.medicamento}`
+    openModal()
+}
+
+const editDelete = (event) => {
+    if (event.target.type == 'button') {
+
+        const [action, index] = event.target.id.split('-')
+
+        if (action == 'edit') {
+            editClient(index)
+        } else {
+            const client = readClient()[index]
+            const response = confirm(`Deseja realmente excluir o/a ${client.medicamento}`)
+            if (response) {
+                deleteClient(index)
+                updateTable()
+            }
+        }
+    }
+}
+
+updateTable()
+
+// Eventos
+document.getElementById('cadastrarCliente')
+    .addEventListener('click', openModal)
+
+document.getElementById('modalClose')
+    .addEventListener('click', closeModal)
+
+document.getElementById('salvar')
+    .addEventListener('click', saveClient)
+
+document.querySelector('#tableClient>tbody')
+    .addEventListener('click', editDelete)
+
+document.getElementById('cancelar')
+    .addEventListener('click', closeModal)
+  </script>
+    
+ </body>
+</html>
