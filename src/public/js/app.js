@@ -3,9 +3,9 @@ document.addEventListener("DOMContentLoaded", function () {
   var db = new Dexie("MedOrganizer");
 
   // Definir o esquema das tabelas
-  db.version(3).stores({
+  db.version(4).stores({
     medicamentos:
-      "++id, nome, fabricante, principioAtivo, formaFarmaceutica, efeitosColaterais",
+      "++id, nome, fabricante, principioAtivo, formaAdministracao, efeitosColaterais",
     farmacias: "++id, nome, contato, telefone, chavePix",
     medicos: "++id, nome, especialidade, telefone, endereço, valor",
     agenda: "++id, dataHora, tipo, status, medico_id, clinica_laboratorio_id, notas"
@@ -15,13 +15,13 @@ document.addEventListener("DOMContentLoaded", function () {
     nome,
     fabricante,
     principioAtivo,
-    formaFarmaceutica,
+    formaAdministracao,
     efeitosColaterais
   ) {
     this.nome = nome;
     this.fabricante = fabricante;
     this.principioAtivo = principioAtivo;
-    this.formaFarmaceutica = formaFarmaceutica;
+    this.formaAdministracao = formaAdministracao;
     this.efeitosColaterais = efeitosColaterais;
   }
 
@@ -65,14 +65,14 @@ document.addEventListener("DOMContentLoaded", function () {
     novoNome,
     novoFabricante,
     novoPrincipioAtivo,
-    novaFormaFarmaceutica,
+    novaFormaAdministracao,
     novoEfeitosColaterais
   ) {
     db.medicamentos.update(id, {
       nome: novoNome,
       fabricante: novoFabricante,
       principioAtivo: novoPrincipioAtivo,
-      formaFarmaceutica: novaFormaFarmaceutica,
+      formaAdministracao: novaFormaAdministracao,
       efeitosColaterais: novoEfeitosColaterais,
     });
   }
@@ -157,15 +157,17 @@ document.addEventListener("DOMContentLoaded", function () {
           var cellNome = row.insertCell(1);
           var cellFabricante = row.insertCell(2);
           var cellPrincipioAtivo = row.insertCell(3);
-          var cellFormaFarmaceutica = row.insertCell(4);
+          var cellFormaAdministracao = row.insertCell(4);
           var cellEfeitosColaterais = row.insertCell(5);
           var cellAcoes = row.insertCell(6);
+
+          cellAcoes.classList.add("actions");
 
           cellId.textContent = medicamento.id;
           cellNome.textContent = medicamento.nome;
           cellFabricante.textContent = medicamento.fabricante;
           cellPrincipioAtivo.textContent = medicamento.principioAtivo;
-          cellFormaFarmaceutica.textContent = medicamento.formaFarmaceutica;
+          cellFormaAdministracao.textContent = medicamento.formaAdministracao;
           cellEfeitosColaterais.textContent = medicamento.efeitosColaterais;
 
           var btnEditar = document.createElement("button");
@@ -178,8 +180,8 @@ document.addEventListener("DOMContentLoaded", function () {
               medicamento.fabricante;
             document.getElementById("medicamentoPrincipioAtivo").value =
               medicamento.principioAtivo;
-            document.getElementById("medicamentoFormaFarmaceutica").value =
-              medicamento.formaFarmaceutica;
+            document.getElementById("medicamentoFormaAdministracao").value =
+              medicamento.formaAdministracao;
             document.getElementById("medicamentoEfeitosColaterais").value =
               medicamento.efeitosColaterais;
           };
@@ -372,8 +374,8 @@ document.addEventListener("DOMContentLoaded", function () {
       var principioAtivo = document.getElementById(
         "medicamentoPrincipioAtivo"
       ).value;
-      var formaFarmaceutica = document.getElementById(
-        "medicamentoFormaFarmaceutica"
+      var formaAdministracao = document.getElementById(
+        "medicamentoFormaAdministracao"
       ).value;
       var efeitosColaterais = document.getElementById(
         "medicamentoEfeitosColaterais"
@@ -385,7 +387,7 @@ document.addEventListener("DOMContentLoaded", function () {
           nome,
           fabricante,
           principioAtivo,
-          formaFarmaceutica,
+          formaAdministracao,
           efeitosColaterais
         );
       } else {
@@ -393,7 +395,7 @@ document.addEventListener("DOMContentLoaded", function () {
           nome,
           fabricante,
           principioAtivo,
-          formaFarmaceutica,
+          formaAdministracao,
           efeitosColaterais
         );
         db.medicamentos.add(medicamento);

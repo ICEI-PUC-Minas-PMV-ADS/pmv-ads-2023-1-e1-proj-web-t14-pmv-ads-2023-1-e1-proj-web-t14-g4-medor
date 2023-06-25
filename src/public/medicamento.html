@@ -73,75 +73,80 @@
       <!---------------- END OF ASIDE ---------------->
       <main>
         <h1>Medicamentos</h1>
+        
+        <div class="card">
+          <div class="card-header">
+            <h2>Novo Medicamento</h2>
+          </div>
+          <div class="card-body">
+            <!-- begin::form -->
+            <!-- <form method="post" action="#"> -->
+              <input type="hidden" id="medicamentoId" name="id" />
+              <!--nome-->
+              <div class="form-cad-group">
+                <label for="medicamentoNome">Nome:</label>
+                <input type="text" id="medicamentoNome" name="nome" required placeholder="(Obrigatório)" />
+              </div>
+
+              <!-- formaAdministracao -->
+              <div class="form-cad-group">
+                <label for="medicamentoEfeitosColaterais">Forma de Administração:</label>
+                <select id="medicamentoFormaAdministracao" name="formaAdministracao">
+                  <option value="">Selecione...</option>
+                  <option value="Uso transdérmico">Uso transdérmico</option>
+                  <option value="Via Implante">Via Implante</option>
+                  <option value="Via Tópica">Via Tópica</option>
+                  <option value="Via Subcutânea">Via Subcutânea</option>
+                  <option value="Via Retal">Via Retal</option>
+                  <option value="Via Oral">Via Oral</option>
+                  <option value="Via Ocular">Via Ocular</option>
+                  <option value="Via Nasal">Via Nasal</option>
+                  <option value="Via Auricular">Via Auricular</option>
+                  <option value="Via Uretral">Via Uretral</option>
+                  <option value="Injetáveis">Injetáveis</option>
+                  <option value="Via Vaginal">Via Vaginal</option>
+                  <option value="Uso Bucal">Uso Bucal</option>
+                  <option value="Sublingual">Sublingual</option>
+                  <option value="Para Inalação">Para Inalação</option>
+                </select>
+              </div>
+
+              <!--fabricante-->
+              <div class="form-cad-group">
+                <label for="medicamentoFabricante">Fabricante:</label>
+                <input type="text" id="medicamentoFabricante" name="fabricante" placeholder="" />
+              </div>
+              <!-- principioAtivo -->
+              <div class="form-cad-group">
+                <label for="medicamentoPrincipioAtivo">Princípio Ativo:</label>
+                <input type="text" id="medicamentoPrincipioAtivo" name="principioAtivo" placeholder="" />
+              </div>
+              <!-- formaFarmaceutica -->
+              <!-- <div class="form-cad-group">
+                <label for="medicamentoFormaFarmaceutica">Forma Farmacêutica:</label>
+                <input type="text" id="medicamentoFormaFarmaceutica" name="formaFarmaceutica" placeholder="" />
+              </div> -->
+              <!-- foefeitosColaterais -->
+              <div class="form-cad-group">
+                <label for="medicamentoEfeitosColaterais">Efeitos Colaterais:</label>
+                <input type="text" id="medicamentoEfeitosColaterais" name="efeitosColaterais" placeholder="" />
+              </div>
+              
+              
+
+            <!-- </form> -->
+            <!-- end::form -->
+          </div>
+          <div class="card-footer">
+            
+              <button id="btnSalvarMedicamento" class="btn">Salvar</button>
+            
+          </div>
+        </div>
 
         <div class="recent-orders">
-          <!-- <h2>Novo Medicamento</h2> -->
-
-          <!-- begin::form -->
-          <!-- <form method="post" action"#"> -->
-          <input type="hidden" id="medicamentoId" name="id" />
-          <!--nome-->
-          <div class="form-group">
-            <label for="medicamentoNome">Nome:</label>
-            <input
-              type="text"
-              id="medicamentoNome"
-              name="nome"
-              required
-              placeholder="(Obrigatório)"
-            /><br />
-          </div>
-          <!--fabricante-->
-          <div class="form-group">
-            <label for="medicamentoFabricante">Fabricante:</label>
-            <input
-              type="text"
-              id="medicamentoFabricante"
-              name="fabricante"
-              placeholder=""
-            /><br />
-          </div>
-          <!-- principioAtivo -->
-          <div class="form-group">
-            <label for="medicamentoPrincipioAtivo">Princípio Ativo:</label>
-            <input
-              type="text"
-              id="medicamentoPrincipioAtivo"
-              name="principioAtivo"
-              placeholder=""
-            /><br />
-          </div>
-          <!-- formaFarmaceutica -->
-          <div class="form-group">
-            <label for="medicamentoFormaFarmaceutica"
-              >Forma Farmacêutica:</label
-            >
-            <input
-              type="text"
-              id="medicamentoFormaFarmaceutica"
-              name="formaFarmaceutica"
-              placeholder=""
-            /><br />
-          </div>
-          <!-- foefeitosColaterais -->
-          <div class="form-group">
-            <label for="medicamentoEfeitosColaterais"
-              >Efeitos Colaterais:</label
-            >
-            <input
-              type="text"
-              id="medicamentoEfeitosColaterais"
-              name="efeitosColaterais"
-              placeholder=""
-            /><br />
-          </div>
-          <!-- actions -->
-          <div>
-            <!-- <input id="btnSalvarMedicamento" class ="btn" type="submit" value="Salvar"> -->
-            <button id="btnSalvarMedicamento" class="btn">Salvar</button>
-          </div>
-          <!-- </form>-->
-          <!-- end::form -->
+          
+          
 
           <div style="margin-top: 10px">
             <table id="tabelaMedicamentos">
@@ -156,7 +161,20 @@
                   <th>Ações</th>
                 </tr>
               </thead>
-              <tbody></tbody>
+              <tbody>
+                <tr>
+                  <td>2</td>
+                  <td>Nome Medicamento 2</td>
+                  <td>Fabricante 2</td>
+                  <td>Princípio Ativo 2</td>
+                  <td>Forma Farmacêutica 2</td>
+                  <td>Efeitos Colaterais 2</td>
+                  <td class="actions">
+                    <span class="material-icons"><span class="material-symbols-rounded">edit</span></span>
+                    <span class="material-icons"><span class="material-symbols-rounded">delete</span></span>
+                  </td>
+                </tr>
+              </tbody>
             </table>
           </div>
         </div>
