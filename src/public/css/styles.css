@@ -1010,7 +1010,7 @@ canvas#chart {
 }
 
 .form-cad-group select,
-.form-cad-group input {
+textarea, .form-cad-group input{
   padding: 0.8rem;
   margin-top: 0.5rem;
   background: var(--color-background);
