@@ -161,111 +161,91 @@
       </aside>
       <!---------------- END OF ASIDE ---------------->
       <main>
-        <h1>Novo Agendamento</h1>
+        <h1>Agendamentos</h1>
 
-        <div class="recent-orders">
-          <input type="hidden" id="agendaNome" name="id" />
-          <div class="form-group">
-            <label for="agendaNome">Nome:</label>
-            <input
-              type="text"
-              id="agendaNome"
-              name="nome"
-              required
-              placeholder="(Obrigatório)"
-            /><br />
+        <div class="card">
+          <div class="card-header">
+            <h2>Novo Agendamento</h2>
           </div>
-          <div class="form-group">
-            <label for="agendaDataHora">Data e Hora:</label>
-            <input
-              type="datetime-local"
-              id="agendaDataHora"
-              name="dataHora"
-              min="2023-01-00T00:00"
-              max="2099-01-00T00:00"
-              placeholder=""
-            /><br />
+          <div class="card-body">
+            <form method="post" action="#">
+              <input type="hidden" id="agendaNome" name="id" />
+              <div class="form-cad-group">
+                <label for="agendaNome">Nome:</label>
+                <input type="text" id="agendaNome" name="nome" required placeholder="(Obrigatório)" value="Evandro Kumasaka"/>
+              </div>
+              <div class="form-cad-group">
+                <label for="agendaDataHora">Data e Hora:</label>
+                <input type="datetime-local" id="agendaDataHora" name="dataHora" min="2023-01-00T00:00" max="2099-01-00T00:00" placeholder="" value="2023-06-12T16:30"/>
+              </div>
+              <div class="form-cad-group">
+                <label for="agendaTipo">Tipo:</label>
+                <select id="agendaTipo" name="tipo">
+                  <option value="" disabled>
+                    Selecione um tipo de agendamento
+                  </option>
+                  <option value="Consulta" selected>Consulta</option>
+                  <option value="Exame Médico">Exame Médico</option>
+                </select>
+              
+              </div>
+              <div class="form-cad-group form-cad-group">
+                <label for="agendaStatus">Status:</label>
+                <select id="agendaStatus" name="status">
+                  <option value="" disabled>
+                    Selecione o status do agendamento
+                  </option>
+                  <option value="Realizado">Realizado</option>
+                  <option value="Aguardando Retorno">Aguardando Retorno</option>
+                  <option value="Aguardando Exame">Aguardando Exame</option>
+                  <option value="Não Realizado" selected>Não Realizado</option>
+                  <option value="Cancelado">Cancelado</option>
+                </select>
+              </div>
+              <div class="form-cad-group">
+                <label for="agendaMedico">Médico:</label>
+                <select id="agendaMedico" name="medico">
+                  <option value="" disabled>
+                    Selecione...
+                  </option>
+                  <option value="1" selected>Dr. João Odúlio</option>
+                  <option value="2">Dr. Giovanni Melone</option>
+                </select>
+              </div>
+              <div class="form-cad-group">
+                <label for="agendaClinicaLaboratorio">Clínica:</label>
+                <select id="agendaClinicaLaboratorio" name="clinicaLaboratorio">
+                  <option value="" disabled>
+                    Selecione...
+                  </option>
+                  <option value="1" selected>Salutar Médicina</option>
+                  <option value="2">Clinicuore</option>
+                </select>
+              </div>
+              <div class="form-cad-group">
+                <label for="agendaNotas">Notas:</label>
+                <input type="text" id="agendaNotas" name="notas" placeholder="" />
+              </div>
+              <div class="upload-container">
+                <label for="file-input" class="upload-icon">
+                  <i class="material-icons">cloud_upload</i>
+                </label>
+                <input type="file" id="file-input" class="file-input" multiple style="display: none" />
+                <span class="upload-text">Clique aqui para realizar o upload</span>
+                <span class="other-text">Ou</span>
+                <input type="file" id="file-input" class="file-input" multiple />
+                <div class="file-list">
+                  <div class="uploaded-files"></div>
+                  <input type="file" id="file-input" class="file-input" multiple style="display: none" />
+                  <label for="file-input" class="upload-label"> </label>
+                </div>
+              </div>
+            </form>
           </div>
-          <div class="form-group">
-            <label for="agendaTipo">Tipo:</label>
-            <select id="agendaTipo" name="tipo">
-                <option value="" selected disabled>
-                  Selecione um tipo de agendamento
-                </option>
-                <option value="Consulta">Consulta</option>
-                <option value="Exame Médico">Exame Médico</option>
-              </select>
-              <br />
-          </div>
-          <div class="form-group">
-            <label for="agendaStatus">Status:</label>
-            <select id="agendaStatus" name="status">
-              <option value="" selected disabled>
-                Selecione o status do agendamento
-              </option>
-              <option value="Realizado">Realizado</option>
-              <option value="Aguardando Retorno">Aguardando Retorno</option>
-              <option value="Aguardando Exame">Aguardando Exame</option>
-              <option value="Não Realizado">Não Realizado</option>
-              <option value="Cancelado">Cancelado</option>
-            </select>
-            <br />
-          </div>
-          <div class="form-group">
-            <label for="agendaMedico">Médico:</label>
-            <input
-              type="text"
-              id="agendaMedico"
-              name="medico"
-              placeholder=""
-            /><br />
-          </div>
-          <div class="form-group">
-            <label for="agendaClinicaLaboratorio">Clínica:</label>
-            <input
-              type="text"
-              id="agendaClinicaLaboratorio"
-              name="clinicaLaboratorio"
-              placeholder=""
-            /><br />
-          </div>
-          <div class="form-group">
-            <label for="agendaNotas">Notas:</label>
-            <input
-              type="text"
-              id="agendaNotas"
-              name="notas"
-              placeholder=""
-            /><br />
-          </div>
-          <div class="upload-container">
-            <label for="file-input" class="upload-icon">
-              <i class="material-icons">cloud_upload</i>
-            </label>
-            <input
-              type="file"
-              id="file-input"
-              class="file-input"
-              multiple
-              style="display: none"
-            />
-            <span class="upload-text">Clique aqui para realizar o upload</span>
-            <span class="other-text">Ou</span>
-            <input type="file" id="file-input" class="file-input" multiple />
-            <div class="file-list">
-              <div class="uploaded-files"></div>
-              <input
-                type="file"
-                id="file-input"
-                class="file-input"
-                multiple
-                style="display: none"
-              />
-              <label for="file-input" class="upload-label"> </label>
+          <div class="card-footer">
+            <div>
+              <button id="btnSalvarAgendamento" class="btn">Salvar</button>
             </div>
-          </div>
-          <div>
-            <button id="btnSalvarMedicamento" class="btn">Salvar</button>
           </div>
         </div>
       </main>
