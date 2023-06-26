@@ -49,7 +49,7 @@
                     <h3>Medicamentos</h3>
                     <!-- <span class="message-count">1</span> -->
                 </a>
-                <a href="./farmacia.html" class="active">
+                <a href="./farmacia.html">
                     <span class="material-symbols-rounded">emoji_transportation</span>
                     <h3>Farmácias</h3>
                 </a>               
@@ -67,46 +67,49 @@
         <main>
             <h1>Médicos</h1>
             
-            <div class="recent-orders">
-              <!-- <h2>Novo Medicamento</h2> -->
-              
-              <!-- begin::form -->
-              <!-- <form method="post" action"#"> -->
-                 <input type="hidden" id="medicoId" name="id">
-                 <!--nome-->
-                 <div class="form-group">
-                    <label for="medicoNome">Nome:</label>
-                    <input type="text" id="medicoNome" name="nome" required placeholder="(Obrigatório)"><br>
-                 </div>
-                <!--especialidade-->
-                 <div class="form-group">
-                    <label for="medicoEspecialidade">Especialidade:</label>
-                    <input type="text" id="medicoEspecialidade" name="Especialidade" placeholder=""><br>
-                 </div>
-                 <!-- telefone -->
-                 <div class="form-group">
-                    <label for="medicoTelefone">Telefone:</label>
-                    <input type="number" id="medicoTelefone" name="Telefone" placeholder=""><br>
-                 </div>
-                 <!-- endereço -->
-                 <div class="form-group">
-                    <label for="medicoEndereço">Endereço:</label>
-                    <input type="text" id="medicoEndereço" name="Endereço" placeholder=""><br>
-                 </div>
-                 <!-- valor -->
-                 <div class="form-group">
-                    <label for="medicoValor">Valor:</label>
-                    <input type="number" id="medicoValor" name="Valor" placeholder=""><br>
-                 </div>
-                 <!-- actions -->
-                 <div>
-                    <!-- <input id="btnSalvarMedicamento" class ="btn" type="submit" value="Salvar"> -->
-                    <button id="btnSalvarMedico" class ="btn">Salvar</button>
-                 </div>
-              <!-- </form>-->
-              <!-- end::form --> 
-              
-              <div style="margin-top: 10px;">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Novo Médico</h2>
+                </div>
+                <div class="card-body">
+                <!-- begin::form -->
+                <!-- <form method="post" action"#"> -->
+                    <input type="hidden" id="medicoId" name="id">
+                    <!--nome-->
+                    <div class="form-cad-group">
+                        <label for="medicoNome">Nome:</label>
+                        <input type="text" id="medicoNome" name="nome" required placeholder="(Obrigatório)" value="Dr. João Odúlio">
+                    </div>
+                    <!--especialidade-->
+                    <div class="form-cad-group">
+                        <label for="medicoEspecialidade">Especialidade:</label>
+                        <input type="text" id="medicoEspecialidade" name="especialidade" placeholder="" value="Geriatria">
+                    </div>
+                    <!-- telefone -->
+                    <div class="form-cad-group">
+                        <label for="medicoTelefone">Telefone:</label>
+                        <input type="number" id="medicoTelefone" name="telefone" placeholder="+55 (035) 98765-4563" value="+55 (035) 98765-4563">
+                    </div>
+                    <!-- endereço -->
+                    <div class="form-cad-group">
+                        <label for="medicoEndereço">Endereço:</label>
+                        <input type="text" id="medicoEndereço" name="Endereço" placeholder="">
+                    </div>
+                    <!-- valor -->
+                    <div class="form-cad-group">
+                        <label for="medicoValor">Valor:</label>
+                        <input type="number" id="medicoValor" name="Valor" placeholder="" value="280.00">
+                    </div>
+                    
+                <!-- </form>-->
+                <!-- end::form --> 
+                </div>
+                <div class="card-footer">
+                    <button id="btnSalvarMedico" class="btn">Salvar</button>
+                </div>
+            </div>
+            
+            <div class="recent-orders">  
                 <table id="tabelaMedicos">
                   <thead>
                       <tr>
@@ -120,9 +123,7 @@
                       </tr>
                   </thead>
                   <tbody></tbody>
-                </table>
-              </div>
-              
+                </table>              
             </div>
             
         </main>
